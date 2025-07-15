@@ -48,11 +48,11 @@ export class MCPClientHTTP {
     }
   }
 
-  async getDefinition(word: string, language: string, provider: string, context?: string): Promise<any> {
+  async getDefinition(word: string, language: string, provider: string, context?: string, isTooltip?: boolean): Promise<any> {
     try {
       // Map provider names to valid LLM providers
       const llmProvider = provider === 'mcp-claude' ? 'lmstudio' : provider;
-      logger.info(`Requesting definition for ${word} using provider ${llmProvider}`);
+      logger.info(`Requesting definition for ${word} using provider ${llmProvider}${isTooltip ? ' (tooltip mode)' : ''}`);
       
       // Add timeout to prevent hanging
       const controller = new AbortController();
@@ -66,11 +66,11 @@ export class MCPClientHTTP {
         body: JSON.stringify({
           word,
           language,
-          context,
-          includeEtymology: true,
-          includeCollocations: true,
-          includeExpressions: true,
-          includeCulturalNotes: true,
+          context: isTooltip ? 'tooltip' : context,  // Pass 'tooltip' as context to trigger concise mode
+          includeEtymology: !isTooltip,  // Skip extras for tooltips
+          includeCollocations: !isTooltip,
+          includeExpressions: !isTooltip,
+          includeCulturalNotes: !isTooltip,
           llmProvider: llmProvider
         }),
         signal: controller.signal

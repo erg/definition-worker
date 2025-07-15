@@ -282,7 +282,8 @@ class DefinitionWorker {
             request.word,
             request.language,
             request.provider || process.env.LLM_PROVIDER || 'openai',
-            request.context
+            request.context,
+            request.isTooltip
           );
           break; // Success, exit retry loop
         } catch (mcpError: any) {
