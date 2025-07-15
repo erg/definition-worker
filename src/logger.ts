@@ -1,16 +1,25 @@
+import { createLogger } from '@language-app/logger';
+import path from 'path';
+
+// Create winston logger instance
+const winstonLogger = createLogger({
+  service: 'definition-worker',
+  logDir: path.join(process.cwd(), '../../logs'),
+  level: process.env.LOG_LEVEL || 'info'
+});
+
+// Export logger with the same interface
 export const logger = {
   info: (message: string, ...args: any[]) => {
-    console.log(`[${new Date().toISOString()}] INFO:`, message, ...args);
+    winstonLogger.info(message, { data: args });
   },
   error: (message: string, ...args: any[]) => {
-    console.error(`[${new Date().toISOString()}] ERROR:`, message, ...args);
+    winstonLogger.error(message, { data: args });
   },
   warn: (message: string, ...args: any[]) => {
-    console.warn(`[${new Date().toISOString()}] WARN:`, message, ...args);
+    winstonLogger.warn(message, { data: args });
   },
   debug: (message: string, ...args: any[]) => {
-    if (process.env.DEBUG) {
-      console.debug(`[${new Date().toISOString()}] DEBUG:`, message, ...args);
-    }
+    winstonLogger.debug(message, { data: args });
   },
 };

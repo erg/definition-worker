@@ -74,7 +74,7 @@ export class MCPClient {
   }
 
   private processBuffer() {
-    const lines = this.buffer.split('\\n');
+    const lines = this.buffer.split('\n');
     this.buffer = lines.pop() || '';
 
     for (const line of lines) {
@@ -114,7 +114,7 @@ export class MCPClient {
         return;
       }
 
-      this.process.stdin.write(JSON.stringify(request) + '\\n');
+      this.process.stdin.write(JSON.stringify(request) + '\n');
 
       // Timeout after 30 seconds
       setTimeout(() => {
@@ -126,12 +126,13 @@ export class MCPClient {
     });
   }
 
-  async getDefinition(word: string, language: string, provider: string): Promise<any> {
+  async getDefinition(word: string, language: string, provider: string, context?: string): Promise<any> {
     try {
       const result = await this.sendRequest('tools/generate_dictionary', {
         word,
         target_language: language,
         provider,
+        context,
       });
       return result;
     } catch (error) {

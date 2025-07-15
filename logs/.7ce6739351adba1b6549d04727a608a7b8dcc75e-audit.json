@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "/Users/erg/src/language/services/definition-worker/logs/.7ce6739351adba1b6549d04727a608a7b8dcc75e-audit.json",
+    "files": [
+        {
+            "date": 1752468322944,
+            "name": "/Users/erg/src/language/services/definition-worker/logs/combined-2025-07-13.log",
+            "hash": "c9e8d61f5b16448e8157c9d01a14314442a62bdf82009a094ff7eb683ba17a65"
+        },
+        {
+            "date": 1752469261515,
+            "name": "/Users/erg/src/language/services/definition-worker/logs/combined-2025-07-14.log",
+            "hash": "54746263bea8549913988dbe26f3f99c04e660b4add4e6df2adc823e32f04999"
+        },
+        {
+            "date": 1752585570189,
+            "name": "/Users/erg/src/language/services/definition-worker/logs/combined-2025-07-15.log",
+            "hash": "cdff2f8fad6f00b8bf855d3a5597b7827911460bf32713b986799d958197486e"
+        }
+    ],
+    "hashType": "sha256"
+}

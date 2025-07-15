@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/erg/src/language/services/definition-worker/logs/.264c49519929aa56e90abaaabeda1b0abaccd4b6-audit.json",
+    "files": [
+        {
+            "date": 1752468322941,
+            "name": "/Users/erg/src/language/services/definition-worker/logs/clickhouse-client-2025-07-13.log",
+            "hash": "81f97636517ae52169020056c9869871a47a738f105c690b3f506a336c980306"
+        },
+        {
+            "date": 1752469261515,
+            "name": "/Users/erg/src/language/services/definition-worker/logs/clickhouse-client-2025-07-14.log",
+            "hash": "5c3d8670a8b11ea03ab6a63c2279b69fc629c4feef3f46f56a6acc8fb8e97899"
+        },
+        {
+            "date": 1752585570186,
+            "name": "/Users/erg/src/language/services/definition-worker/logs/clickhouse-client-2025-07-15.log",
+            "hash": "bb9f04f233020b91d66d210ccc2cf850d3a1c0939395e2810eabb2a4a46060c8"
+        }
+    ],
+    "hashType": "sha256"
+}
